@@ -24,7 +24,7 @@ import (
 	"strings"
 	"unicode"
 
-	"google.golang.org/api/google-api-go-generator/internal/disco"
+	"github.com/google/google-api-go-client/google-api-go-generator/internal/disco"
 )
 
 const (
@@ -368,7 +368,7 @@ func genDirRoot() string {
 	if len(paths) == 0 {
 		log.Fatalf("No GOPATH set.")
 	}
-	return filepath.Join(paths[0], "src", "google.golang.org", "api")
+	return filepath.Join(paths[0], "src", "github.com", "google", "google-api-go-client")
 }
 
 func (a *API) SourceDir() string {
@@ -1603,9 +1603,9 @@ func (meth *Method) generateCode() {
 
 	p("\n%s", asComment("", methodName+": "+meth.m.Description))
 	if res != nil {
-		if url := canonicalDocsURL[fmt.Sprintf("%v%v/%v", docsLink, res.Name, meth.m.Name)]; url != "" {
-			pn("// For details, see %v", url)
-		}
+		//if url := canonicalDocsURL[fmt.Sprintf("%v%v/%v", docsLink, res.Name, meth.m.Name)]; url != "" {
+		//	pn("// For details, see %v", url)
+		//}
 	}
 
 	var servicePtr string
